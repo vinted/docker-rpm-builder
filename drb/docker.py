@@ -122,7 +122,7 @@ class Docker(object):
         self._options.extend(["--interactive", "--tty"])
         return self
 
-    def bindmount_dir(self, host_dir, guest_dir, read_only=True):
+    def bindmount_dir(self, host_dir, guest_dir, read_only=False):
         precondition(os.access(host_dir, os.R_OK | os.X_OK), "host_dir must be readable and executable")
         precondition(os.path.isdir(host_dir), "host_dir must be a directory")
         precondition(os.path.isabs(guest_dir), "guest_dir must be absolute")
